@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'infcdl3';
 $user = 'root';
-$pass = 'root';
+$pass = '';
 $charset = 'utf8mb4';
 
 //Traitement des erreurs à la connexion de la BDD

@@ -19,7 +19,7 @@ switch ($action) {
                 include "../views/RegisterForm.php";
             } else {
                 $userId = CreateNewUser($_POST['pseudo'], $_POST['password']);
-                header('Location: ../views/LoginForm.php');
+                header('Location: ?action=login');
             }
         } else {
             include "../views/RegisterForm.php";
@@ -40,7 +40,8 @@ switch ($action) {
             $userId = Login($_POST['pseudo'], $_POST['password']);
 
             if ($userId > 0) {
-                $_SESSION['userId'] = $userId;
+                $_SESSION['userId'] = $userId['id_user'];
+                $_SESSION['is_admin'] = $userId['is_admin'];
                 header('Location: ?action=display');
                 exit;
             } else {
@@ -59,6 +60,45 @@ switch ($action) {
             header('Location: ?action=display');
         } else {
             include "../views/ActivityForm.php";
+        }
+        break;
+
+    case 'deleteMsg':
+
+        include "../models/PostManager.php";
+        if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1 && isset($_GET['id_post'])) {
+            $supressCommentaries = SuppresCommentaryByAdmin($_GET['id_post']);
+            if ($supressCommentaries) {
+                header('Location: ?action=display'); // Redirection après la modification
+                exit;
+            } else {
+                $errorMsg = "Échec de la suppression du commentaire.";
+                include "../views/ActivityForm.php";
+            }
+        } else {
+            $errorMsg = "Id manquant";
+            include "../views/ActivityForm.php";
+        }
+
+        break;
+
+    case 'modifyMsg':
+        include "../models/PostManager.php";
+        if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1 && isset($_POST['content']) && isset($_POST['id_post'])) {
+            $modifyCommentaries = ModifyCommentaryByAdmin($_POST['content'], $_POST['id_post']);
+            if ($modifyCommentaries) {
+                header('Location: ?action=display'); // Redirection après la modification
+                exit;
+            } else {
+                $errorMsg = "Échec de la modification du commentaire.";
+                include "../views/ActivityModify.php";
+            }
+        } else {
+            if (isset($_GET['id_post'])) {
+                include "../views/ActivityModify.php";
+            } else {
+                $errorMsg = "Erreur : ID du commentaire manquant.";
+            }
         }
         break;
 

@@ -18,9 +18,7 @@
                 <label for="content">Rentrer votre message :</label>
                 <input type="text" id="content" name="content" required>
 
-            </div>
-
-            <button type="submit">Poster</button>
+                <button type="submit">Poster</button>
         </form>
     </div>
 </body>

@@ -34,7 +34,7 @@ function Login($pseudo, $password)
     $user = $pdo_prepare->fetch();
 
     if ($user && password_verify($password, $user['password'])) {
-        return $user['id_user'];
+        return $user;
     } else {
         return -1;
     }
