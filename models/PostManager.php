@@ -2,7 +2,8 @@
 
 include "../models/PDO.php";
 
-function PostCommentary($userId, $content) {
+function PostCommentary($userId, $content)
+{
     global $PDO;
     $sql = "INSERT INTO post (id_user, content) VALUES (:id_user, :content)";
     $pdo_prepare = $PDO->prepare($sql);
@@ -10,7 +11,8 @@ function PostCommentary($userId, $content) {
     return $pdo_execute;
 }
 
-function GetAllCommentary() {
+function GetAllCommentary()
+{
     global $PDO;
     $sql =  'select post.*, user.pseudo
                     from post

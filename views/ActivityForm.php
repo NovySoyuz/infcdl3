@@ -13,7 +13,7 @@
     <div class="container">
         <form action="?action=newMsg" method="POST">
             <h2>Inscription</h2>
-        
+
             <div class="groupe">
                 <label for="content">Rentrer votre message :</label>
                 <input type="text" id="content" name="content" required>

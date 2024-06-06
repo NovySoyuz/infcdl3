@@ -18,7 +18,7 @@
     <div class="container">
         <form action="?action=login" method="POST">
             <h2>Connexion</h2>
-        
+
             <div class="groupe">
                 <label for="pseudo">Pseudo :</label>
                 <input type="text" id="pseudo" name="pseudo" required>
@@ -32,7 +32,7 @@
             </div>
 
             <?php
-            
+
             if (isset($errorMsg)) {
                 echo "<div class='alert-warning'>$errorMsg</div>";
             }

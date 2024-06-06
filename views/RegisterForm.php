@@ -18,7 +18,7 @@
     <div class="container">
         <form action="?action=register" method="POST">
             <h2>Inscription</h2>
-        
+
             <div class="groupe">
                 <label for="pseudo">Pseudo :</label>
                 <input type="text" id="pseudo" name="pseudo" required>
