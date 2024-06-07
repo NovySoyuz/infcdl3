@@ -87,7 +87,7 @@ switch ($action) {
         if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1 && isset($_POST['content']) && isset($_POST['id_post'])) {
             $modifyCommentaries = ModifyCommentaryByAdmin($_POST['content'], $_POST['id_post']);
             if ($modifyCommentaries) {
-                header('Location: ?action=display'); // Redirection après la modification
+                header('Location: ?action=display');
                 exit;
             } else {
                 $errorMsg = "Échec de la modification du commentaire.";
