@@ -32,8 +32,8 @@
             </div>
 
             <div class="groupe">
-                <label for="mot_de_passe">Confirmer mot de passe :</label>
-                <input type="password" id="mot_de_passe" name="passwordRetype" required>
+                <label for="passwordRetype">Confirmer mot de passe :</label>
+                <input type="password" id="passwordRetype" name="passwordRetype" required>
 
             </div>
             <?php

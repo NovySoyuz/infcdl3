@@ -14,7 +14,7 @@ body {
     width: 60px;
 }
 
-header{
+header {
     background-color: #f2f2f2;
     display: flex;
     justify-content: space-between;
@@ -23,9 +23,14 @@ header{
     padding: 10px;
 }
 
-.alert-warning{
+.alert-warning {
     color: red;
 }
+
+.success-warning {
+    color: green;
+}
+
 .container {
     max-width: 400px;
     margin: 50px auto;
