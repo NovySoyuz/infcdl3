@@ -41,9 +41,10 @@
     <tbody>
       <?php foreach ($commentaries as $commentary) : ?>
         <tr>
-          <td><?php echo htmlspecialchars($commentary['pseudo']); ?></td> <!-- Prevenir attaque sql -->
+          <td><?php
+              echo htmlspecialchars($commentary['pseudo']); ?></td> <!-- Prevenir attaque sql -->
           <td><?php echo htmlspecialchars($commentary['content']); ?></td>
-          <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) : ?>
+          <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1 || isset($_SESSION['userId']) && $_SESSION['userId'] == $commentary['id_user']) : ?>
             <td><a class="nav-link" href="?action=modifyMsg&id_post=<?php echo urlencode($commentary['id_post']); ?>&content=<?php echo urlencode($commentary['content']); ?>" role="button">modify</a></td>
             <td><a class="nav-link" href="?action=deleteMsg&id_post=<?php echo urlencode($commentary['id_post']); ?>" onclick="return confirmDeletion();" role="button">supprimer</a></td>
           <?php endif; ?>

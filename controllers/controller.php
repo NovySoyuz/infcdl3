@@ -106,7 +106,6 @@ switch ($action) {
     default:
         include "../models/PostManager.php";
         $commentaries = GetAllCommentary();
-
         include "../views/DisplayForum.php";
 
         break;
